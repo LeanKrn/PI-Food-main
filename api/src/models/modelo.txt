@@ -1,0 +1,11 @@
+id
+title (titulo)
+readyInMinutes (preparado en ... minutos)
+pricePerServing (precio por racion)
+sourceName (nombre del creador)
+image (imagen)
+healthScore (puntaje saludable)
+summary (resumen)
+cuisines   (origen)
+diets (diestas)
+analyzedInstructions (paso a paso)
