@@ -10,8 +10,8 @@ const router = Router();
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
-router.use('/auth', authRouter);
+// router.use('/auth', authRouter);
 
-router.use("dataBase",databaseRouter);
+router.use("/dataBase",databaseRouter);
 
 module.exports = router;

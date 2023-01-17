@@ -4,10 +4,15 @@ const { axios } = ("axios")
 const {
     DB_API
 } = process.env;
+//    fetch(`https://api.spoonacular.com/recipes/complexSearch`)
+// .then((data) => data) ${DB_API}
 
 database.get('/', (res, req) => {
-    fetch(`https://api.spoonacular.com/recipes/complexSearch${DB_API}`)
-        .then((data) => data)
+ 
+});
+
+database.get('/:id', (res, req) => {
+ 
 });
 
 
