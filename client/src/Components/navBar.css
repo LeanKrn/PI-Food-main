@@ -1,0 +1,21 @@
+.nav {
+    display: flex;
+    padding: 1vh;
+    margin: 1.5vh;
+    border-radius: 1vh;
+    background-color: rgb(127, 151, 248);
+    justify-content: space-around;
+   
+}
+
+.link {
+    margin: auto 10vh;
+    text-decoration: none;
+    font-size: 2vh;
+    
+}
+
+.nav img {
+    width: 100px;
+    margin: .1vh 1vh;
+}

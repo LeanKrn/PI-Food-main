@@ -1,0 +1,32 @@
+.inicio {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    
+}
+.cards {
+   width: 82%;
+   height: 80vh;
+   background-color: gray;
+   border-radius:  .5vh;
+}
+
+.filters {
+    width: 15%;
+   background-color: rgb(127, 151, 248);
+   border-radius: .5vh;
+}
+
+.filters input {
+    width: 17vh;
+    padding: .5vh 2vh;
+    margin: .5vh;
+    border-radius: .5vh;
+}   
+
+.buscar {
+    background-color: rgb(126, 255, 126);
+    border-radius: .5vh;
+    padding: .3vh;
+    cursor: pointer;
+}
