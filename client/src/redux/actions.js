@@ -1,28 +1,30 @@
+import axios from "axios";
 export const GET_RECIPES = "GET_RECIPES";
 export const GET_DIETS = "GET_DIETS";
 export const CREATE_RECIPES = "CREATE_RECIPES";
 
 export const getRecipes = () => {
-    return async function (dispatch) {
-        await axios.get("https://localhost:3001/food/recipes")
-            .then((data) =>
-                dispatch({ type: GET_RECIPES, payload: data.results })
+    return  function (dispatch) {
+         axios.get("http://localhost:3001/recipes")
+            .then(info =>
+                dispatch({ type: GET_RECIPES, payload: info.data })
             );
+            
     }
 };
 
 export const getDiets = () => {
     return async function (dispatch) {
-        await axios.get("https://localhost:3001/food/diets")
-            .then((data) =>
-                dispatch({ type: GET_DIETS, payload: data.results })
+        await axios.get("http://localhost:3001/diets")
+            .then((info) =>
+                dispatch({ type: GET_DIETS, payload: info.data })
             );
     }
 };
 
 export const createRecipe = async (recipes) => {
     return async function (dispatch) {
-        await axios.post('/https://localhost:3001/food/recipes', {
+        await axios.post('http://localhost:3001/recipes', {
             id: recipes.id,
             title: recipes.title,
             image: recipes.image,
@@ -35,8 +37,8 @@ export const createRecipe = async (recipes) => {
             cuisines: recipes.cuisines,
             analyzedInstructions: recipes.analyzedInstructions
         })
-            .then((data) =>
-                dispatch({ type: CREATE_RECIPES, payload: data.results })
+            .then((info) =>
+                dispatch({ type: CREATE_RECIPES, payload: info.data })
             );
     }
 };

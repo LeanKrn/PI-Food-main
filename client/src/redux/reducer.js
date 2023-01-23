@@ -5,18 +5,18 @@ const initialState = {
   diets: [],
 };
 
-const rootReducer = (state = initialState, {payload,type}) => {
-  switch (type) {
+const rootReducer = (state = initialState, action) => {
+  switch (action.type) {
     case GET_RECIPES:
       return {
         ...state,
-        recipes: payload,
+        recipes: action.payload,
       };
 
     case GET_DIETS:
       return {
         ...state,
-        diets: payload,
+        diets: action.payload,
       };
 
     case CREATE_RECIPES:

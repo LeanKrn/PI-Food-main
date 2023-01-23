@@ -8,6 +8,7 @@ const { Op } = require("sequelize");
 
 
 const getRecipes = async () => {
+    try {
     const apiData = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=a0f37e16f12e47cb85d9252d88d08542&number=100&addRecipeInformation=true`)
     const apimap = await apiData.data.results.map(receta => ({
         id: receta.id,
@@ -21,9 +22,23 @@ const getRecipes = async () => {
         title: receta.title,
         image: receta.image,
         diets: receta.diets?.map((e)=>e.diet),
+        
     }))
     const result = [...mapeobdd, ...apimap]
     return result
+    } catch (error) {
+        const bdd = await Recipe.findAll({include:{model:Diet,through:{attributes:[]}}})
+        const mapeobdd = bdd.map(receta => ({
+            id: receta.id,
+            title: receta.title,
+            image: receta.image,
+            diets: receta.diets?.map((e)=>e.diet),
+        }))
+        const result = [...mapeobdd]
+        return result
+    }
+    
+
 }
 
 const queryRecipes = async (title) => {
