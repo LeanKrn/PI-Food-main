@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 import { getRecipes } from "../redux/actions"
 import styled from "styled-components"
 import Tarj from "./tarjeta"
-import Imagen from "./img/kerans.png"
+import Imagen from "./img/keranSad.png"
 
 const Container = styled.div`
     display:flex;
@@ -17,35 +17,32 @@ class TarjetaRecipe extends React.Component {
     componentDidMount() {
         this.props.getRecipes();
     }
- 
 
-render() {
-    return (
-        <Container>
-            {
-                this.props.recipes.map(recipes => {
-                    
-                    return (
-                        <Tarj
-                            title={recipes.title}
-                            diets={recipes.diets}
-                            img={recipes.image ? recipes.image : Imagen}
-                        />
-                    )
+    
+
+
+    render() {
+        return (
+            <Container>
+                {   
+                   this.props.currentPost ? this.props.currentPost.map(recipes => {
+                    console.log(this.props.currentPost)
+                        return (
+                            <Tarj
+                                title={recipes.title}
+                                diets={recipes.diets}
+                                img={recipes.image ? recipes.image : Imagen}
+                            />
+                        )
+                    }
+                    ): <p>no content</p>
                 }
-                )
-            }
-        </Container>
-    )
-}
-
-}
-
-const mapStateToProps = (state) => {
-    return {
-        recipes: state.recipes,
+            </Container>
+        )
     }
+
 }
+
 
 const mapDispartchToProps = (dispatch) => {
     return {
@@ -53,4 +50,4 @@ const mapDispartchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispartchToProps)(TarjetaRecipe);
+export default connect(null, mapDispartchToProps)(TarjetaRecipe);

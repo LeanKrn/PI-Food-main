@@ -2,3 +2,51 @@
   text-align: center;
 }
 
+.inicio {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  
+}
+.cards {
+ width: 82%;
+ height: 135vh;
+ background-color: #D7E3FC;
+ border-radius:  .5vh;
+}
+
+.filters {
+  width: 15%;
+  height: 65vh;
+ background-color: #ABC4FF;
+ border-radius: .5vh;
+}
+
+.filters input {
+  width: 17vh;
+  padding: .5vh 2vh;
+  margin: .5vh;
+  border-radius: .5vh;
+}   
+
+.buscar {
+  background-color: #ABC4FF;
+  border-radius: .5vh;
+  padding: .3vh;
+  cursor: pointer;
+}
+
+.filters{
+  position:sticky;
+  
+}
+
+
+.custom-select select {
+  width: 20vh;
+  height: 2.5vh;
+  border: none;
+  border-radius: 5px;
+  margin: 10px;
+  border-bottom: 3px solid #CCDBFD;
+}

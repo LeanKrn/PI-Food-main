@@ -4,7 +4,7 @@ import './inicio.css';
 import TarjetaRecipe from "./tarjetas"
 
 class inicioRoute extends React.Component {
-
+    
     render() {
         return (
             <div className="inicio">
@@ -15,6 +15,7 @@ class inicioRoute extends React.Component {
                 </div>
                 <div className="cards">
                     <TarjetaRecipe />
+                  
                 </div>
             </div>
         )

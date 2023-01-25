@@ -3,7 +3,7 @@
     padding: 1vh;
     margin: 1.5vh;
     border-radius: 1vh;
-    background-color: rgb(127, 151, 248);
+    background-color: #ABC4FF;
     justify-content: space-around;
    
 }
@@ -12,7 +12,7 @@
     margin: auto 10vh;
     text-decoration: none;
     font-size: 2vh;
-    
+    font-family: Ubuntu, sans-serif;
 }
 
 .nav img {
