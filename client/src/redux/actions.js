@@ -13,6 +13,16 @@ export const getRecipes = () => {
     }
 };
 
+export const getRecipesByName = (name) => {
+    return  function (dispatch) {
+         axios.get(`http://localhost:3001/recipes?title=${name}`)
+            .then(info =>
+                dispatch({ type: GET_RECIPES, payload: info.data })
+            );
+            
+    }
+};
+
 export const getDiets = () => {
     return async function (dispatch) {
         await axios.get("http://localhost:3001/diets")
@@ -25,7 +35,6 @@ export const getDiets = () => {
 export const createRecipe = async (recipes) => {
     return async function (dispatch) {
         await axios.post('http://localhost:3001/recipes', {
-            id: recipes.id,
             title: recipes.title,
             image: recipes.image,
             diets: recipes.diets,

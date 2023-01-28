@@ -26,7 +26,7 @@ class TarjetaRecipe extends React.Component {
             <Container>
                 {   
                    this.props.currentPost ? this.props.currentPost.map(recipes => {
-                    console.log(this.props.currentPost)
+                    
                         return (
                             <Tarj
                                 title={recipes.title}

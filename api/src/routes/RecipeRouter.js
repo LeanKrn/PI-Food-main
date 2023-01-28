@@ -7,11 +7,11 @@ const { getRecipes, detailRecipe, queryRecipes,postRecipes } = require("./contro
 recipes.get('/', async ({ query }, res) => {
     try {
         let recipes = []
-        if (query.name) {
-            recipes = await queryRecipes(query.name)
+        if (query.title) {
+            recipes = await queryRecipes(query.title)
         } else {
             recipes = await getRecipes()
-
+            console.log("aaaa");
         }
         res.status(200).json(recipes)
     } catch (error) {

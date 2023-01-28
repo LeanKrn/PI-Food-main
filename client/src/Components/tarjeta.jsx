@@ -11,7 +11,7 @@ const Tarjeta = styled.div`
     align-content: center;
     background-color: #ABC4FF;
     h2{
-        font-family: sans-serif;
+        font-family: Helvetica;
         margin: 10px 20px;
         padding: 2px 10px;
         border-radius: 15px;
@@ -33,16 +33,16 @@ const DietP = styled.p`
    font-size: 15px;
    padding: 2px 5px;
    border-radius: 5px;
-   font-family: Ubuntu, sans-serif;
+   font-family: Helvetica;
    background-color: #EDF2FB;
 `
 
 
 
-const Tarj = ({ img, title, diets,style }) => {
+const Tarj = ({ img, title, diets }) => {
     return (
         <Tarjeta>
-            <h2>name:{title}</h2>
+            <h2>{title}</h2>
             <DietDiv >
                 {diets.length<4?
                 diets.map(diet=> 

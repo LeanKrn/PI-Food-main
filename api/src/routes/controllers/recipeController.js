@@ -9,7 +9,7 @@ const { Op } = require("sequelize");
 
 const getRecipes = async () => {
     try {
-    const apiData = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=5ded334b21f646bdb66cc1dd2afde66d&number=100&addRecipeInformation=true`)
+    const apiData = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=a0f37e16f12e47cb85d9252d88d08542&number=100&addRecipeInformation=true`)
     const apimap = await apiData.data.results.map(receta => ({
         id: receta.id,
         title: receta.title,
@@ -43,14 +43,14 @@ const getRecipes = async () => {
 
 const queryRecipes = async (title) => {
     const result = await getRecipes()
-    return result.filter(e => e.title.toLowerCase().includes(title.toLowerCase()))
+    return result.filter((e) => e.title.toLowerCase().includes(title.toLowerCase()))
 }
 
 
 
 
 const detailRecipe = async (id) => {
-    const apiData = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=5ded334b21f646bdb66cc1dd2afde66d&number=100&addRecipeInformation=true`)
+    const apiData = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=a0f37e16f12e47cb85d9252d88d08542&number=100&addRecipeInformation=true`)
     const apimap = await apiData.data.results.map(receta => ({
         id: receta.id,
         title: receta.title,
