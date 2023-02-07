@@ -2,9 +2,11 @@ body {
   background-color: #EDF2FB;
   background-image: linear-gradient(
     to right,
-    #1919ff3f,
-    #6ca2ff7c
+    #00646696,
+    #4d194d96
   ), url("./Components/./img/cuadritos.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   background-size: 100%;
   
   margin: 0;

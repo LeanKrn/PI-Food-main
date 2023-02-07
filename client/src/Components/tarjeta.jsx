@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from "styled-components"
 
 const Tarjeta = styled.div`
@@ -9,7 +10,7 @@ const Tarjeta = styled.div`
     margin: 20px;
     border-radius: 10px;
     align-content: center;
-    background-color: #ABC4FF;
+    background-color: #d7e3fc99;
     h2{
         font-family: Helvetica;
         margin: 10px 20px;
@@ -22,6 +23,12 @@ const Tarjeta = styled.div`
         height: 250px;
         margin: 10px;
         border-radius: 10px;
+    }
+    @media only screen and (max-width: 1600px) {
+        width: 300px;
+        h2{
+            max-height: 17vh;
+        }
     }
 `
 const DietDiv = styled.div`
@@ -39,10 +46,12 @@ const DietP = styled.p`
 
 
 
-const Tarj = ({ img, title, diets }) => {
+const Tarj = ({ img, title, diets,id }) => {
     return (
         <Tarjeta>
+            <Link to={`/recipes/${id}`}>
             <h2>{title}</h2>
+            </Link>
             <DietDiv >
                 {diets.length<4?
                 diets.map(diet=> 

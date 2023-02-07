@@ -1,43 +1,24 @@
 const axios = require('axios');
-const {
-    DB_API
-} = process.env;
-const { Recipe,Diet } = require("../../db")
+const { Recipe, Diet } = require("../../db")
 const { Op } = require("sequelize");
-
+const { apiDataReady,dbbDataReady,apiDataSimple,mapeobddSimple } = require( './Funcs');
 
 
 const getRecipes = async () => {
     try {
-    const apiData = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=a0f37e16f12e47cb85d9252d88d08542&number=100&addRecipeInformation=true`)
-    const apimap = await apiData.data.results.map(receta => ({
-        id: receta.id,
-        title: receta.title,
-        image: receta.image,
-        diets: receta.diets,
-    }))
-    const bdd = await Recipe.findAll({include:{model:Diet,through:{attributes:[]}}})
-    const mapeobdd = bdd.map(receta => ({
-        id: receta.id,
-        title: receta.title,
-        image: receta.image,
-        diets: receta.diets?.map((e)=>e.diet),
-        
-    }))
-    const result = [...mapeobdd, ...apimap]
-    return result
+        const apiData = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.DB_API}&number=100&addRecipeInformation=true`)
+        const apimap = apiDataSimple(apiData)
+        const bdd = await Recipe.findAll({ include: { model: Diet, through: { attributes: [] } } })
+        const mapeobdd = mapeobddSimple(bdd)
+        const result = [...mapeobdd, ...apimap]
+        return result
     } catch (error) {
-        const bdd = await Recipe.findAll({include:{model:Diet,through:{attributes:[]}}})
-        const mapeobdd = bdd.map(receta => ({
-            id: receta.id,
-            title: receta.title,
-            image: receta.image,
-            diets: receta.diets?.map((e)=>e.diet),
-        }))
+        const bdd = await Recipe.findAll({ include: { model: Diet, through: { attributes: [] } } })
+        const mapeobdd = mapeobddSimple(bdd)
         const result = [...mapeobdd]
         return result
     }
-    
+
 
 }
 
@@ -50,40 +31,24 @@ const queryRecipes = async (title) => {
 
 
 const detailRecipe = async (id) => {
-    const apiData = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=a0f37e16f12e47cb85d9252d88d08542&number=100&addRecipeInformation=true`)
-    const apimap = await apiData.data.results.map(receta => ({
-        id: receta.id,
-        title: receta.title,
-        image: receta.image,
-        diets: receta.diets,
-        pricePerServing: receta.pricePerServing,
-        sourceName: receta.sourceName,
-        readyInMinutes: receta.readyInMinutes,
-        healthScore: receta.healthScore,
-        summary: receta.summary,
-        cuisines: receta.cuisines,
-        analyzedInstructions: receta.analyzedInstructions
-    }))
-    const bdd = await Recipe.findAll({include:{model:Diet,through:{attributes:[]}}}) 
-    const mapeobdd = bdd.map(receta => ({
-        id: receta.id,
-        title: receta.title,
-        image: receta.image,
-        diets: receta.diets?.map((e)=>e.diet),
-        pricePerServing: receta.pricePerServing,
-        sourceName: receta.sourceName,
-        readyInMinutes: receta.readyInMinutes,
-        healthScore: receta.healthScore,
-        summary: receta.summary,
-        cuisines: receta.cuisines,
-        analyzedInstructions: receta.analyzedInstructions,
-    }))
-    const result = [...mapeobdd, ...apimap]
-    return result.find(e => (e.id == id))
+    try {
+        const apiData = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.DB_API}&number=100&addRecipeInformation=true`)
+        const apimap = apiDataReady(apiData)
+        const bdd = await Recipe.findAll({ include: { model: Diet, through: { attributes: [] } } })
+        const mapeobdd = dbbDataReady(bdd)
+        const result = [...mapeobdd, ...apimap]
+        return result.find(e => (e.id == id))
+    } catch (error) {
+        const bdd = await Recipe.findAll({ include: { model: Diet, through: { attributes: [] } } })
+        const mapeobdd = dbbDataReady(bdd)
+        const result = [...mapeobdd]
+        return result.find(e => (e.id == id))
+    }
+
 }
 
 
-const postRecipes =async (body) => {
+const postRecipes = async (body) => {
     const {
         id,
         title,
@@ -112,4 +77,4 @@ const postRecipes =async (body) => {
     newRecipe.addDiets(diets)
 }
 
-module.exports = { getRecipes, detailRecipe, queryRecipes,postRecipes }
+module.exports = { getRecipes, detailRecipe, queryRecipes, postRecipes }

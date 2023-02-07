@@ -6,20 +6,21 @@
   display: flex;
   justify-content: space-around;
   flex-direction: row;
-  
+
 }
+
 .cards {
- width: 82%;
- height: 135vh;
- background-color: #D7E3FC;
- border-radius:  .5vh;
+  width: 82%;
+  height: 1400px;
+  background-color: #abc4ff99;
+  border-radius: .5vh;
 }
 
 .filters {
   width: 15%;
-  height: 65vh;
- background-color: #ABC4FF;
- border-radius: .5vh;
+  height: 200px;
+  background-color: #abc4ff99;
+  border-radius: .5vh;
 }
 
 .filters input {
@@ -29,7 +30,7 @@
   border-radius: .5vh;
   border: none;
   border-bottom: 3px solid #CCDBFD;
-}   
+}
 
 .buscar {
   background-color: #ABC4FF;
@@ -38,18 +39,42 @@
   cursor: pointer;
 }
 
-.filters{
-  position:sticky;
+.filters {
+  position: sticky;
   font-family: Helvetica;
 }
 
 
 .custom-select select {
   width: 20vh;
-  height: 2.5vh;
+  height: 3vh;
   border: none;
   border-radius: 5px;
   margin: 10px;
   border-bottom: 3px solid #CCDBFD;
   font-size: 17px;
+}
+
+.divCheckboxs {
+  margin: 10px 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+.divCheckboxs div {
+  margin: 5px auto;
+  height: 20px;
+  width: 200px;
+  align-items: center;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end
+}
+
+.divCheckboxs input {
+  width: 10px;
+}
+
+.divCheckboxs label {
+  margin: a;
 }

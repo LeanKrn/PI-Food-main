@@ -29,6 +29,7 @@ class TarjetaRecipe extends React.Component {
                     
                         return (
                             <Tarj
+                                id={recipes.id}
                                 title={recipes.title}
                                 diets={recipes.diets}
                                 img={recipes.image ? recipes.image : Imagen}

@@ -2,7 +2,7 @@
 .FormCreate {
 display: flex;
 flex-direction: column;
-background-color: #D7E3FC;
+background-color: #d7e3fcce;
 height: 900px;
 margin: 50px;
 border-radius: 10px;
@@ -11,7 +11,12 @@ border-radius: 10px;
 .UnList{
     margin: auto;
     padding: 20px;
+    display: flex;
+    width: 600px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
+
 .ListOr{
     font-size: 17px;
     display: flex;
@@ -29,4 +34,30 @@ border-radius: 10px;
 
 .DivValues{
     margin: auto;
+    background-color:#ABC4FF ;
+    border-radius: 10px;
+    padding: 20px;
+}
+.DivValues p{
+    width: 300px;
+}
+
+
+
+.CheckBoxs{
+    width: 600px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.CheckBoxs div{
+    display: flex;
+   align-items: center;
+   background-color: #ABC4FF;
+   border-radius: 10px;
+   margin: 10px;
+   padding: 5px;
+}
+.CheckBoxs input{
+    width: 15px;
 }
